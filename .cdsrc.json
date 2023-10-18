@@ -1,0 +1,52 @@
+{
+    "folders": {
+        "srv": "api/services"
+    },
+    "requires": {
+        "approuter": {
+            "kind": "cloudfoundry"
+        },
+        "auth": {
+            "[development]": {
+                "kind": "mocked"
+            },
+            "[production]": {
+                "kind": "xsuaa"
+            }
+        },
+        "db": {
+            "kind": "sqlite",
+            "credentials": {
+                "database": "/workspaces/btp-trial/db/sql_BTPTRIAL.Db"
+            },
+            "[production]": {
+                "kind": "hana"
+            }
+        }
+    },
+    "build": {
+        "target": "gen",
+        "tasks": [
+            {
+                "src": "db",
+                "for": "hana",
+                "options": {
+                    "model": [
+                        "db",
+                        "app"
+                    ]
+                }
+            },
+            {
+                "src": "api/services",
+                "for": "nodejs",
+                "options": {
+                    "model": [
+                        "db",
+                        "srv"
+                    ]
+                }
+            }
+        ]
+    }
+}
