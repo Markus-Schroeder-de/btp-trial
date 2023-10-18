@@ -1,0 +1,70 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "btp.trial",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {},
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000, 8080],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "sudo chmod +x .devcontainer/postCreateCommands.sh && sudo .devcontainer/postCreateCommands.sh",
+  // More info: https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount
+  "mounts": [
+    "source=${localEnv:USERPROFILE},target=/home/vscode,type=bind,consistency=cached"
+    // "source=${localEnv:USERPROFILE}/.pnpm-store,target=/root/.local/share/pnpm/store,type=bind,consistency=cached",
+    // "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "containerEnv": {
+    "CF_API_DEV": "https://api.cf.ch20.hana.ondemand.com/"
+  },
+  // Configure tool-specific properties.
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "alefragnani.Bookmarks",
+        "adamhartford.vscode-base64",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "humao.rest-client",
+        "eamodio.gitlens",
+        "flesler.url-encode",
+        "folke.vscode-monorepo-workspace",
+        "GitHub.vscode-pull-request-github",
+        "IronGeek.vscode-env",
+        "janisdd.vscode-edit-csv",
+        "mechatroner.rainbow-csv",
+        "mintlify.document",
+        "mitchdenny.ecdc",
+        "mushan.vscode-paste-image",
+        "ms-vsliveshare.vsliveshare",
+        "nextfaze.json-parse-stringify",
+        "quicktype.quicktype",
+        "redhat.vscode-xml",
+        "ryanluker.vscode-coverage-gutters",
+        "SAPSE.sap-ux-fiori-tools-extension-pack",
+        "vscode-icons-team.vscode-icons",
+        "vstirbu.vscode-mermaid-preview",
+        "wayou.vscode-todo-highlight",
+        "yoavbls.pretty-ts-errors",
+        "zhuangtongfa.material-theme",
+        "nrwl.angular-console",
+        "MS-vsliveshare.vsliveshare",
+        "SAPSE.sap-ux-help-extension",
+        "SAPSE.sap-ux-application-modeler-extension",
+        "SAPSE.sap-ux-service-modeler-extension",
+        "SAPSE.sap-ux-annotation-modeler-extension",
+        "SAPOSS.app-studio-toolkit",
+        "SAPOSS.sap-hana-driver-for-sqltools",
+        "guitartsword.vscode-hana",
+        "SAPSE.hana-database-explorer",
+        "SAPSE.vscode-cds"
+      ]
+    }
+  }
+}
