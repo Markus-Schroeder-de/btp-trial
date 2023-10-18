@@ -1,0 +1,102 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "attach",
+        "name": "Attach to Nodemon",
+        "processId": "${command:PickProcess}",
+        "restart": true,
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Current TS File",
+        "program": "${workspaceFolder}/node_modules/ts-node/dist/bin",
+        "args": [
+          "-r",
+          "tsconfig-paths/register",
+          "${relativeFileDirname}/${fileBasename}",
+          "default-env.json"
+        ]
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug NestJs",
+        "program": "${workspaceFolder}/node_modules/ts-node/dist/bin",
+        "args": [
+          "-r",
+          "tsconfig-paths/register",
+          "src/main.ts",
+        ],
+        "console": "internalConsole",
+        "outputCapture": "std"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Debug Current File",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
+        "args": [
+          "${fileBasenameNoExtension}",
+          "--runInBand",
+          "--config",
+          "${workspaceRoot}/jest.config.js",
+          "--coverage",
+          "false"
+        ],
+        "console": "internalConsole",
+        "outputCapture": "std",
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+        },
+        "sourceMaps": true,
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Debug Integration Test",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
+        "args": [
+          "${fileBasenameNoExtension}",
+          "--runInBand",
+          "--config",
+          "${workspaceRoot}/jest.config.integration.js",
+          "--coverage",
+          "false"
+        ],
+        // "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+        },
+        "sourceMaps": true,
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Debug ALL Integration Test",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
+        "args": [
+          "--runInBand",
+          "--config",
+          "${workspaceRoot}/jest.config.integration.js",
+          "--coverage",
+          "false"
+        ],
+        // "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "windows": {
+          "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+        },
+        "sourceMaps": true,
+        "outFiles": [
+          "${workspaceFolder}/target/src/*.js"
+        ]
+      }
+    ]
+  }

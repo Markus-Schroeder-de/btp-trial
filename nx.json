@@ -1,0 +1,45 @@
+{
+    "tasksRunnerOptions": {
+      "default": {
+        "runner": "nx/tasks-runners/default",
+        "options": {
+          "cacheableOperations": [
+            "clean",
+            "build",
+            "build:dev",
+            "prebuild",
+            "build:check",
+            "start:dev"
+          ]
+        }
+      }
+    },
+    "targetDefaults": {
+      "clean": {
+        "dependsOn": [
+          "^clean"
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      },
+      "prebuild": {
+        "dependsOn": [
+          "^prebuild"
+        ]
+      },
+      "build:check": {
+        "dependsOn": [
+          "^build:check"
+        ]
+      }
+    },
+    "affected": {
+      "defaultBase": "main"
+    }
+  }

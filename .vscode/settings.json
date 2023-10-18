@@ -1,0 +1,32 @@
+{
+    "files.exclude": {
+      "**/.git": true
+    },
+    "editor.snippetSuggestions": "bottom",
+    "editor.formatOnSave": true,
+    "[typescript]": {
+      "editor.formatOnSave": false
+    },
+    "[javascript]": {
+      "editor.formatOnSave": false
+    },
+    "[javascriptreact]": {
+      "editor.formatOnSave": false
+    },
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "json.schemaDownload.enable": true,
+    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
+    "SAP HANA Database Explorer.enableSapWebAnalytics": false,
+    "eslint.validate": [
+      "cds",
+      "csn",
+      "csv",
+      "csv",
+      "csv (semicolon)",
+      "tsv",
+      "tab"
+    ]
+  }

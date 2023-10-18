@@ -1,0 +1,76 @@
+{
+  "name": "btp-trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "clean:purge": "rimraf dist node_modules",
+    "update:env": "cf target -o  && ts-node scripts/update-env.ts",
+    "start:api": "nest start @api/core",
+    "watch:cds": "cds-ts watch",
+    "lint:cds": "eslint --ext \".cds,.csn,.csv\"",
+    "create:docs": "cds compile api/services --service all -o docs/api/ --to openapi --openapi:diagram"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "1",
+    "@nestjs/cli": "9.5.0",
+    "@repo-tooling/eslint-plugin-dprint": "0.0.4",
+    "@rushstack/node-core-library": "3.59.6",
+    "@sap/cds-dk": "7.2.0",
+    "@sapui5/types": "1.118.0",
+    "@typescript-eslint/eslint-plugin": "5.45.1",
+    "@typescript-eslint/parser": "5.45.1",
+    "@ui5/cli": "3.3.4",
+    "dotenv": "16.1.4",
+    "eslint": "8.29.0",
+    "eslint-import-resolver-typescript": "3.5.2",
+    "eslint-plugin-codegen": "0.16.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-simple-import-sort": "8.0.0",
+    "eslint-plugin-sort-destructure-keys": "1.4.0",
+    "karma": "6.4.2",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.1",
+    "karma-ui5": "3.0.3",
+    "karma-ui5-transpile": "3.0.0",
+    "mbt": "1.2.25",
+    "npm-check-updates": "16.10.12",
+    "nx": "16.5.5",
+    "properties-reader": "2.2.0",
+    "rimraf": "5.0.1",
+    "sqlite3": "5.1.6",
+    "ts-loader": "9.4.3",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "4.3.5",
+    "ui5-middleware-livereload": "3.0.0",
+    "ui5-tooling-transpile": "3.0.0",
+    "yo": "4.3.1"
+  },
+  "workspaces": [
+    "api/server",
+    "api/services"
+  ],
+  "engines": {
+    "node": "18.0.0",
+    "npm": "9.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Markus-Schroeder-de/btp-trial/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Markus-Schroeder-de/btp-trial.git"
+  },
+  "homepage": "https://github.com/Markus-Schroeder-de/btp-trial#readme",
+  "keywords": [],
+  "author": "Markus Schröder",
+  "license": "",
+  "dependencies": {
+    "@sap/cds": "7",
+    "@sap/xsenv": "4.0.0",
+    "@sap/xssec": "^3",
+    "passport": "^0"
+  }
+}
